@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { readingMins } from "../../lib/reading-time";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout
+  title="Off By 1 — Blog"
+  description="Notes from the Off By 1 studio. Posted when there's something worth posting."
+  current="blog"
+>
+  <section class="section blog-section" id="blog">
+    <div class="container">
+      <span class="section-label">section[1]: blog</span>
+      <h2 class="section-title">Blog</h2>
+      <p class="section-sub">
+        Notes from the studio. Posted when there's something worth posting.
+      </p>
+      <div class="blog-list">
+        {
+          posts.map((post, i) => (
+            <article class="post">
+              <a class="post-head" href={`/blog/${post.id}/`}>
+                <span class="v-idx">[{i}]</span>
+                <span class="post-title">{post.data.title}</span>
+                <span class="post-meta">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toISOString().slice(0, 10)}
+                  </time>
+                  <span>~{readingMins(post.body)} min</span>
+                  <span class="toggle">→</span>
+                </span>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

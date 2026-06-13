@@ -1,0 +1,73 @@
+---
+import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.tsx";
+import DigitalRain from "../components/DigitalRain.tsx";
+
+interface Props {
+  title: string;
+  description?: string;
+  onLanding?: boolean;
+  current?: string;
+}
+
+const {
+  title,
+  description = "Off By 1 — Carefully built. Reliably useful.",
+  onLanding = false,
+  current,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" type="image/png" href="/assets/ob1-mark.png" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Off By 1 Blog"
+      href={new URL("rss.xml", Astro.site)}
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      // set theme before paint to avoid a flash of the wrong theme
+      document.documentElement.setAttribute(
+        "data-theme",
+        localStorage.getItem("ob1-theme") === "dark" ? "dark" : "light",
+      );
+    </script>
+  </head>
+  <body>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <!-- <DigitalRain client:only="react" /> -->
+    <SiteHeader client:load onLanding={onLanding} current={current} />
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-legal">
+          <p>
+            &copy; {new Date().getFullYear()} Off By 1 LLC &middot;{" "}
+            <a href="https://offby1.tech">offby1.tech</a>
+          </p>
+          <p class="footer-eof">// EOF</p>
+        </div>
+        <div class="footer-legal" style="text-align: right;">
+          <p>Carefully built.<br />Reliably useful.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

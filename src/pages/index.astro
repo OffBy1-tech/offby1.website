@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GlitchWord from "../components/GlitchWord.tsx";
+import ProductList from "../components/ProductList.tsx";
+---
+
+<BaseLayout
+  title="Off By 1 — AI-assisted software studio"
+  description="Off By 1 builds practical products designed for real life. Each one exists because a genuine problem needed solving."
+  onLanding={true}
+>
+  <section class="hero container" id="home">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">
+          <span class="prompt">~/offby1 $</span> whoami
+        </span>
+        <h1 class="display">Off By 1</h1>
+        <p class="tagline">Carefully built. Reliably useful.</p>
+        <p class="hero-subhead">Practical products, designed for real life.</p>
+        <p class="hero-sub">
+          Off By 1 builds practical products designed for real life. Each one
+          exists because a genuine problem needed solving.
+        </p>
+        <p class="hero-sub">
+          Everything we build answers the same two questions: is it clear, and
+          is it genuinely useful? No feature bloat, no upsell mazes, no
+          &ldquo;revolutionary platform.&rdquo; Just things that do what they
+          say.
+        </p>
+        <p class="hero-sub">
+          The name comes from a classic programming mistake — a standing
+          reminder that the difference between &ldquo;almost works&rdquo; and
+          &ldquo;works&rdquo; is the whole job.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#products">See the work</a>
+        </div>
+      </div>
+      <div class="hero-mark floaty">
+        <div class="mark-tile">
+          <img
+            src="/assets/ob1-mark.png"
+            alt="The Off By 1 isometric numeral 1"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <span class="section-label">section[2]: open-source</span>
+      <h2 class="section-title">Open source</h2>
+      <p class="section-sub">
+        Useful code is worth sharing. Alongside the products, we publish open
+        source tools and reference implementations — small, practical things
+        you can read, learn from, and build on. This site is one of them.
+      </p>
+      <div class="contact-row">
+        <a
+          class="btn btn-secondary"
+          href="https://github.com/offby1-tech"
+          target="_blank"
+          rel="noopener noreferrer">GitHub ↗</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="products">
+    <div class="container">
+      <span class="section-label">section[3]: products</span>
+      <h2 class="section-title">Products</h2>
+      <p class="section-sub">
+        Products that are live today. More are in the works — they'll show up
+        here when they're real.
+      </p>
+      <div style="margin-top: 40px;">
+        <ProductList client:load />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <span class="section-label">section[4]: about</span>
+      <h2 class="section-title">About the name</h2>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>
+            The off-by-one error is the most common bug in software: a loop
+            that runs one time too many, or one too few. Everyone writes one.
+            Everyone will write another. <strong
+              >We named the company after it</strong
+            > because building software means living with that kind of friction
+            — and shipping anyway.
+          </p>
+          <p>
+            Off By 1 sits at the intersection of AI capability and human
+            judgment. Every product here uses AI to move faster, and a real
+            human at the keyboard to be right. The name is a bug. The products
+            aren't.
+          </p>
+        </div>
+        <pre class="code-block"><code><span class="k">const</span> products = [<span class="s">"Tab Nest"</span>, <span class="s">"<GlitchWord client:load text="Fuzzy Pet" />"</span>];
+
+<span class="k">for</span> (<span class="k">let</span> i = 0; i &lt;= products.length; i++) &lbrace;
+  ship(products[i]);
+&rbrace; <span class="c">// runs three times. we noticed.</span></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <span class="section-label">section[5]: contact</span>
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">
+        Business, press, or a bug report about this page — a real human reads
+        all of it.
+      </p>
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:contact@offby1.tech"
+          >contact@offby1.tech</a
+        >
+        <a
+          class="btn btn-secondary"
+          href="https://x.com/TechOffBy1"
+          target="_blank"
+          rel="noopener noreferrer">X ↗</a
+        >
+        <a
+          class="btn btn-secondary"
+          href="https://github.com/offby1-tech"
+          target="_blank"
+          rel="noopener noreferrer">GitHub ↗</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>

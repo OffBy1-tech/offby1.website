@@ -1,0 +1,53 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { readingMins } from "../../lib/reading-time";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  );
+  return posts.map((post, index) => ({
+    params: { id: post.id },
+    props: { post, index },
+  }));
+}
+
+const { post, index } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout
+  title={`${post.data.title} — Off By 1`}
+  description={post.data.description}
+  current="blog"
+>
+  <section class="section blog-section">
+    <div class="container">
+      <a class="post-back" href="/blog">cd ../blog</a>
+      <article>
+        <span class="section-label">posts[{index}]</span>
+        <h1 class="section-title">{post.data.title}</h1>
+        <div class="post-page-meta">
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toISOString().slice(0, 10)}
+          </time>
+          <span>~{readingMins(post.body)} min</span>
+          {
+            post.data.updatedDate && (
+              <span>
+                updated{" "}
+                <time datetime={post.data.updatedDate.toISOString()}>
+                  {post.data.updatedDate.toISOString().slice(0, 10)}
+                </time>
+              </span>
+            )
+          }
+        </div>
+        <div class="post-prose">
+          <Content />
+        </div>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
