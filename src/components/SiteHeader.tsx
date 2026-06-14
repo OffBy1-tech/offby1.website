@@ -22,6 +22,7 @@ export default function SiteHeader({ onLanding = true, current }: Props) {
   const items = useMemo(() => navItems(onLanding), [onLanding]);
   const [sweep, setSweep] = useState(-1);
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setTheme(
@@ -39,10 +40,9 @@ export default function SiteHeader({ onLanding = true, current }: Props) {
   };
 
   useEffect(() => {
-    const reduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (reduced) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const mobile = window.matchMedia("(max-width: 700px)").matches;
+    if (reduced || mobile) return;
     let timeouts: ReturnType<typeof setTimeout>[] = [];
     const STEP = 400;
     const run = () => {
@@ -72,35 +72,38 @@ export default function SiteHeader({ onLanding = true, current }: Props) {
           <img src="/assets/ob1-mark.png" alt="Off By 1 mark" />
           <span>Off By 1</span>
         </a>
-        <nav className="nav" aria-label="Main">
-          {items.map((item, i) => (
-            <a
-              key={item.label}
-              className={
-                "nav-item" +
-                (sweep === i ? " swept" : "") +
-                (current === item.label ? " current" : "")
-              }
-              href={item.href}
+        <div className="header-right">
+          <nav className={"nav" + (menuOpen ? " open" : "")} aria-label="Main">
+            {items.map((item, i) => (
+              <a
+                key={item.label}
+                className={
+                  "nav-item" +
+                  (sweep === i ? " swept" : "") +
+                  (current === item.label ? " current" : "")
+                }
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+              >
+                <span className="idx">[{i}]</span>
+                <span>{item.label}</span>
+              </a>
+            ))}
+            <span
+              className={"nav-ghost" + (ghostOn ? " on" : "")}
+              aria-hidden="true"
             >
-              <span className="idx">[{i}]</span>
-              <span>{item.label}</span>
-            </a>
-          ))}
-          <span
-            className={"nav-ghost" + (ghostOn ? " on" : "")}
-            aria-hidden="true"
-          >
-            <span className="idx">[{items.length}]</span>
-            <span className="undef">undefined</span>
-          </span>
-          <span
-            className={"nav-counter" + (sweep >= 0 ? " on" : "")}
-            aria-hidden="true"
-          >
-            {sweep >= 0 && sweep < items.length && <span>i = {sweep}</span>}
-            {sweep === items.length && <span className="oob">i = {items.length} // off by one</span>}
-          </span>
+              <span className="idx">[{items.length}]</span>
+              <span className="undef">undefined</span>
+            </span>
+            <span
+              className={"nav-counter" + (sweep >= 0 ? " on" : "")}
+              aria-hidden="true"
+            >
+              {sweep >= 0 && sweep < items.length && <span>i = {sweep}</span>}
+              {sweep === items.length && <span className="oob">i = {items.length} // off by one</span>}
+            </span>
+          </nav>
           <button
             className="theme-btn"
             onClick={toggleTheme}
@@ -111,7 +114,15 @@ export default function SiteHeader({ onLanding = true, current }: Props) {
           >
             ◐
           </button>
-        </nav>
+          <button
+            className="menu-btn"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? "×" : "≡"}
+          </button>
+        </div>
       </div>
     </header>
   );
