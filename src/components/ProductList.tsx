@@ -9,6 +9,7 @@ interface ProductLink {
   label: string;
   href: string;
   primary?: boolean;
+  internal?: boolean;
 }
 
 interface Product {
@@ -41,6 +42,11 @@ const products: Product[] = [
           label: "Install from Chrome Web Store",
           href: "https://chromewebstore.google.com/detail/tab-nest/necndpocofifkmoekdgbocklmmnldegp",
           primary: true,
+        },
+        {
+          label: "Product page",
+          href: "/tabnest",
+          internal: true,
         },
         {
           label: "View source on GitHub",
@@ -106,10 +112,10 @@ function ProductRow({
                 key={link.href}
                 className={"btn " + (link.primary ? "btn-primary" : "btn-secondary")}
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={link.internal ? undefined : "_blank"}
+                rel={link.internal ? undefined : "noopener noreferrer"}
               >
-                {link.label} ↗
+                {link.label}{link.internal ? "" : " ↗"}
               </a>
             ))}
           </div>
