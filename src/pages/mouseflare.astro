@@ -1,0 +1,241 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const RELEASES = "https://github.com/OffBy1-tech/Mouse-Flare/releases";
+const DEMO = "https://offby1-tech.github.io/Mouse-Flare/";
+const GITHUB = "https://github.com/OffBy1-tech/Mouse-Flare";
+---
+
+<BaseLayout
+  title="Mouseflare — never lose your mouse cursor again | Off By 1"
+  description="Mouseflare is a free, open-source desktop utility that keeps your mouse cursor visible with a subtle particle trail and a one-key flare. Native apps for macOS and Windows, built by Off By 1 LLC."
+  current="products"
+>
+  <section class="hero container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">
+          <span class="prompt">~/offby1 $</span> open ./mouseflare
+        </span>
+        <h1 class="display">Mouseflare</h1>
+        <p class="tagline">Never lose your mouse cursor again.</p>
+        <p class="hero-subhead">
+          A free desktop utility that trails your cursor with a subtle
+          particle effect, and fires a bright flare at its exact position on
+          one global hotkey.
+        </p>
+        <p class="hero-sub">
+          Multiple monitors, high-DPI displays, a dozen windows a minute —
+          the cursor is one pixel-wide thing to track. Mouseflare makes it
+          impossible to lose, on purpose, with exactly two features and
+          nothing else to configure.
+        </p>
+        <p class="hero-sub">
+          It's free and open source: no account, no telemetry, no network
+          calls, nothing phoning home. Native apps ship for macOS and
+          Windows.
+        </p>
+        <div class="hero-ctas">
+          <a
+            class="btn btn-primary"
+            href={RELEASES}
+            target="_blank"
+            rel="noopener noreferrer">Download for macOS or Windows ↗</a
+          >
+          <a
+            class="btn btn-secondary"
+            href={DEMO}
+            target="_blank"
+            rel="noopener noreferrer">Try the live demo ↗</a
+          >
+        </div>
+      </div>
+      <div class="hero-mark floaty">
+        <div class="mark-tile">
+          <img src="/assets/mouseflare_256.png" alt="The Mouseflare app icon" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <span class="section-label">section[1]: what it does</span>
+      <h2 class="section-title">What Mouseflare does</h2>
+      <p class="section-sub">
+        Two features, on purpose. "Impossible to lose," not "forty settings
+        you'll never touch."
+      </p>
+      <div class="feature-grid">
+        <div class="feature">
+          <span class="feature-idx">[0]</span>
+          <h3>Spark Trail</h3>
+          <p>
+            While you work, a subtle particle effect trails the cursor — a
+            spark trail, a glow pulse, whatever you pick — so your eye can
+            follow it without thinking about it.
+          </p>
+          <img
+            class="demo-shot"
+            src="/assets/mouseflare-demo-trail.png"
+            alt="A spiral of small golden spark particles trailing across a dark background — the Spark Trail passive effect"
+            loading="lazy"
+          />
+        </div>
+        <div class="feature">
+          <span class="feature-idx">[1]</span>
+          <h3>Find Mouse</h3>
+          <p>
+            One global hotkey fires a bright flare at the cursor's exact
+            position from any app. Press it, the flare erupts, cursor found.
+          </p>
+          <img
+            class="demo-shot"
+            src="/assets/mouseflare-demo-flare.png"
+            alt="A bright expanding ring flare, white and orange, centered on the cursor against a dark background — the active Find Mouse effect"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <span class="section-label">section[2]: how it works</span>
+      <h2 class="section-title">Built to stay out of the way</h2>
+      <p class="section-sub">
+        Everything renders on a transparent, click-through overlay, so
+        Mouseflare never intercepts a click or steals focus — and it sits
+        near-idle when you're not actively using it. Mixed resolutions and
+        mixed DPI scaling across monitors are handled by design; that
+        combination is exactly what breaks most tricks people try before
+        this.
+      </p>
+      <p class="section-sub">
+        Want to try the effects before installing anything? The
+        <a href={DEMO} target="_blank" rel="noopener noreferrer"
+          >browser demo</a
+        > runs the same FX Designer the native apps use — tune density, speed,
+        color, trail length, sound, and reduced-motion, or just grab a preset
+        that looks right.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="install">
+    <div class="container">
+      <span class="section-label">section[3]: install</span>
+      <h2 class="section-title">Get Mouseflare</h2>
+      <p class="section-sub">
+        Free, open source, and published by Off By 1 LLC. Download it, try
+        the demo first, or read the code — it's all open.
+      </p>
+      <p class="section-sub">
+        One honest caveat: the macOS build isn't Apple-notarized yet, so
+        Gatekeeper blocks the first launch. The <a
+          href={RELEASES}
+          target="_blank"
+          rel="noopener noreferrer">release page</a
+        > has the one-line fix. That goes away once notarization clears — for
+        now it's a speed bump, not a wall.
+      </p>
+      <div class="contact-row">
+        <a
+          class="btn btn-primary"
+          href={RELEASES}
+          target="_blank"
+          rel="noopener noreferrer">Releases ↗</a
+        >
+        <a
+          class="btn btn-secondary"
+          href={DEMO}
+          target="_blank"
+          rel="noopener noreferrer">Live demo ↗</a
+        >
+        <a
+          class="btn btn-secondary"
+          href={GITHUB}
+          target="_blank"
+          rel="noopener noreferrer">GitHub ↗</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="support">
+    <div class="container">
+      <span class="section-label">section[4]: support</span>
+      <h2 class="section-title">Support</h2>
+      <p class="section-sub">
+        Bug reports, feature requests, or a question about how it works — a
+        real human reads all of it.
+      </p>
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:contact@offby1.tech"
+          >contact@offby1.tech</a
+        >
+        <a
+          class="btn btn-secondary"
+          href={`${GITHUB}/issues`}
+          target="_blank"
+          rel="noopener noreferrer">Open an issue ↗</a
+        >
+      </div>
+      <p class="section-sub" style="margin-top: 32px;">
+        Mouseflare is published by Off By 1 LLC, a Washington limited
+        liability company. <a href="/">More about Off By 1 →</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 56px;
+    margin-top: 44px;
+  }
+  .feature-idx {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-3);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .feature h3 {
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .feature p {
+    color: var(--text-2);
+    max-width: 46ch;
+    text-wrap: pretty;
+  }
+  .demo-shot {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    margin-top: 18px;
+  }
+
+  .section-sub a {
+    color: var(--link);
+  }
+  .section-sub a:hover {
+    color: var(--link-hover);
+  }
+
+  @media (max-width: 820px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>

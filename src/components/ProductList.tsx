@@ -55,6 +55,36 @@ const products: Product[] = [
       ],
     },
   },
+  {
+    name: "Mouseflare",
+    tag: "Free desktop utility that keeps your mouse cursor visible with a particle trail and a one-key flare.",
+    logo: "/assets/mouseflare_256.png",
+    logoBg: "#F97316",
+    chips: [
+      { label: "macOS & Windows" },
+      { label: "open source", variant: "solid" },
+    ],
+    detail: {
+      description:
+        "A native desktop app that trails your cursor with a subtle particle effect and fires a bright flare at its exact position on a global hotkey — no account, no telemetry, no network calls.",
+      links: [
+        {
+          label: "Download for macOS or Windows",
+          href: "https://github.com/OffBy1-tech/Mouse-Flare/releases",
+          primary: true,
+        },
+        {
+          label: "Product page",
+          href: "/mouseflare",
+          internal: true,
+        },
+        {
+          label: "View source on GitHub",
+          href: "https://github.com/OffBy1-tech/Mouse-Flare",
+        },
+      ],
+    },
+  },
 ];
 
 function ProductRow({
