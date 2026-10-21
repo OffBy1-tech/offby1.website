@@ -85,6 +85,32 @@ const products: Product[] = [
       ],
     },
   },
+  {
+    name: "Sentinel",
+    tag: "Desktop restock monitor that watches product pages and alerts you the moment stock lands.",
+    logo: "/assets/sentinel_logo.png",
+    logoBg: "#3F7CE8",
+    chips: [
+      { label: "macOS & Windows" },
+      { label: "public beta", variant: "solid" },
+    ],
+    detail: {
+      description:
+        "Add a product link once and Sentinel checks it in the background on a schedule you choose, then alerts you by desktop notification, Discord, or webhook the moment it changes. Works with Walmart, Target, Best Buy, Amazon, Shopify stores, and more. Runs on your computer.",
+      links: [
+        {
+          label: "Visit sentineldrops.com",
+          href: "https://www.sentineldrops.com",
+          primary: true,
+        },
+        {
+          label: "Read the announcement",
+          href: "/blog/sentinel-sold-out-until-it-isnt",
+          internal: true,
+        },
+      ],
+    },
+  },
 ];
 
 function ProductRow({
