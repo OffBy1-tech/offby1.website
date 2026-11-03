@@ -1,0 +1,332 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const SITE = "https://www.sentineldrops.com";
+const GUIDE = "https://www.sentineldrops.com/how-to.html";
+const PRIVACY = "https://www.sentineldrops.com/privacy.html";
+const TERMS = "https://www.sentineldrops.com/terms.html";
+const DL_MAC = "https://downloads.sentineldrops.com/latest/Sentinel_aarch64.dmg";
+const DL_WIN = "https://downloads.sentineldrops.com/latest/Sentinel_x64-setup.exe";
+---
+
+<BaseLayout
+  title="Sentinel — stop refreshing, get restock alerts | Off By 1"
+  description="Sentinel is a desktop restock monitor for macOS and Windows. It watches product pages from your own computer and alerts you by desktop notification or Discord the moment stock lands. Free public beta from Off By 1 LLC."
+  current="products"
+>
+  <section class="hero container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">
+          <span class="prompt">~/offby1 $</span> open ./sentinel --beta
+        </span>
+        <h1 class="display">Sentinel</h1>
+        <p class="tagline">Stop refreshing. Sentinel will tell you.</p>
+        <p class="hero-subhead">
+          A desktop app that watches the product pages you care about, across
+          the stores you shop, and messages you the moment something is back
+          in stock.
+        </p>
+        <p class="hero-sub">
+          The page says sold out. You refresh it. You refresh it again
+          tomorrow. The one time it comes back, it's gone before you see it.
+          Refreshing a product page by hand is a job for a computer — so we
+          gave it to one.
+        </p>
+        <p class="hero-sub">
+          The public beta is live now: free for up to 10 products, on macOS
+          (Apple silicon) and Windows. No account, no scripts, no browser
+          extension.
+        </p>
+        <div class="hero-ctas">
+          <a
+            class="btn btn-primary"
+            href={SITE}
+            target="_blank"
+            rel="noopener noreferrer">Download the beta ↗</a
+          >
+          <a
+            class="btn btn-secondary"
+            href={GUIDE}
+            target="_blank"
+            rel="noopener noreferrer">Read the guide ↗</a
+          >
+        </div>
+      </div>
+      <div class="hero-mark floaty">
+        <div class="mark-tile">
+          <img src="/assets/sentinel_logo.png" alt="The Sentinel logo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="overview">
+    <div class="container">
+      <span class="section-label">section[0]: at a glance</span>
+      <h2 class="section-title">Every watch, one dashboard</h2>
+      <p class="section-sub">
+        Everything Sentinel is watching, grouped by store, with price, stock
+        status, and how often each one is checked.
+      </p>
+      <img
+        class="wide-shot"
+        src="/assets/sentinel-dashboard.jpg"
+        alt="The Sentinel dashboard: tiles for monitors, checks in the last hour, purchases and scraping now, above a list of watched products grouped by store — Best Buy, Hot Topic, Premium Bandai, Target and Walmart — each showing price, stock status and an Active badge"
+        width="2000"
+        height="1250"
+        loading="lazy"
+      />
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">10</span><span class="stat-label">products watched at once, free</span></div>
+        <div class="stat"><span class="stat-num">30s</span><span class="stat-label">between checks</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">ways to get alerts</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">accounts to sign up for</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <span class="section-label">section[1]: how it works</span>
+      <h2 class="section-title">Paste a link. Pick where alerts go. Done.</h2>
+      <p class="section-sub">
+        Setup is three steps, and none of them involve writing a script.
+      </p>
+      <div class="feature-grid">
+        <div class="feature">
+          <span class="feature-idx">[0]</span>
+          <h3>Add what you're watching</h3>
+          <p>
+            Paste product links or item numbers, one per line. Sentinel routes
+            each to its store's list and checks it on that store's schedule —
+            you choose how often.
+          </p>
+          <img
+            class="demo-shot"
+            src="/assets/sentinel-add-monitors.png"
+            alt="The Add monitors dialog with Best Buy, Target and Walmart product links pasted in, each routed to its own site list with its check interval"
+            width="1360"
+            height="984"
+            loading="lazy"
+          />
+        </div>
+        <div class="feature">
+          <span class="feature-idx">[1]</span>
+          <h3>Hear about it in seconds</h3>
+          <p>
+            Get alerts as a desktop notification, a Discord DM, or a message
+            to your Discord server's webhook. Every alert names the product,
+            store and price, with a link — and every channel has a
+            <em>Send test</em> button.
+          </p>
+          <img
+            class="demo-shot"
+            src="/assets/sentinel-notifications.png"
+            alt="The Notifications panel with Discord DM, Discord Webhook and Desktop notification channels enabled, each with a Send test button"
+            width="1140"
+            height="942"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stores">
+    <div class="container">
+      <span class="section-label">section[2]: stores</span>
+      <h2 class="section-title">Works where the drops happen</h2>
+      <p class="section-sub">
+        Walmart, Target, Best Buy, Amazon, Premium Bandai, Hot Topic,
+        Crunchyroll, Shopify stores, and even OpenTable reservations. Each
+        store is a plugin from the in-app Store, and new ones arrive without a
+        reinstall — more are on the way.
+      </p>
+      <img
+        class="wide-shot"
+        src="/assets/sentinel-store.jpg"
+        alt="The in-app Store listing plugins for Walmart, Target, Best Buy, Premium Bandai, Hot Topic, Amazon, Crunchyroll Store, Shopify stores and OpenTable, with Installed or Install buttons"
+        width="2000"
+        height="1250"
+        loading="lazy"
+      />
+      <p class="section-sub fine">
+        Sentinel isn't affiliated with, endorsed by, or sponsored by any of
+        these stores.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="privacy">
+    <div class="container">
+      <span class="section-label">section[3]: privacy</span>
+      <h2 class="section-title">It runs on your computer</h2>
+      <p class="section-sub">
+        Sentinel does its checking from your own machine, not from a server
+        somewhere. Your product list, check history, and store logins stay on
+        your computer, with passwords kept in the macOS Keychain or Windows
+        Credential Manager. No analytics, no tracking, no ads, and no account.
+      </p>
+      <p class="section-sub">
+        Want to bring your own proxies? Add them in settings. Sentinel doesn't
+        sell proxies or route your traffic through us. The full details are in
+        the <a href={PRIVACY} target="_blank" rel="noopener noreferrer"
+          >privacy policy</a
+        >.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="install">
+    <div class="container">
+      <span class="section-label">section[4]: install</span>
+      <h2 class="section-title">Get the beta</h2>
+      <p class="section-sub">
+        Free for up to 10 products. Sentinel updates itself, so you'll pick up
+        new stores and fixes as they ship.
+      </p>
+      <p class="section-sub">
+        Two honest caveats. First, this is a public beta: expect frequent
+        updates and the occasional rough edge, and don't make it your only way
+        to hear about something that matters to you. Second, the Windows beta
+        builds aren't signed yet, so SmartScreen may show a blue "Windows
+        protected your PC" box — click <em>More info</em>, then
+        <em>Run anyway</em>. Sentinel only checks while it's open and your
+        computer is awake.
+      </p>
+      <div class="contact-row">
+        <a class="btn btn-primary" href={DL_MAC}>macOS (Apple silicon) ↓</a>
+        <a class="btn btn-primary" href={DL_WIN}>Windows (64-bit) ↓</a>
+        <a
+          class="btn btn-secondary"
+          href={SITE}
+          target="_blank"
+          rel="noopener noreferrer">sentineldrops.com ↗</a
+        >
+        <a
+          class="btn btn-secondary"
+          href={GUIDE}
+          target="_blank"
+          rel="noopener noreferrer">Guide ↗</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="support">
+    <div class="container">
+      <span class="section-label">section[5]: support</span>
+      <h2 class="section-title">Support</h2>
+      <p class="section-sub">
+        Found a rough edge, want a store added, or have a question about how
+        it works? Tell us — beta feedback is the whole point, and a real human
+        reads all of it.
+      </p>
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:contact@offby1.tech"
+          >contact@offby1.tech</a
+        >
+        <a class="btn btn-secondary" href="/blog/sentinel-sold-out-until-it-isnt"
+          >Read the announcement</a
+        >
+      </div>
+      <p class="section-sub" style="margin-top: 32px;">
+        Sentinel is published by Off By 1 LLC, a Washington limited liability
+        company. See the <a href={TERMS} target="_blank" rel="noopener noreferrer"
+          >terms</a
+        > and <a href={PRIVACY} target="_blank" rel="noopener noreferrer"
+          >privacy policy</a
+        >. <a href="/">More about Off By 1 →</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 56px;
+    margin-top: 44px;
+  }
+  .feature-idx {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-3);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .feature h3 {
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .feature p {
+    color: var(--text-2);
+    max-width: 46ch;
+    text-wrap: pretty;
+  }
+  .demo-shot,
+  .wide-shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  .demo-shot {
+    max-width: 460px;
+    margin-top: 18px;
+  }
+  .wide-shot {
+    max-width: 960px;
+    margin-top: 36px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin-top: 32px;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat-num {
+    font-family: var(--font-mono);
+    font-size: 28px;
+    color: var(--text);
+  }
+  .stat-label {
+    color: var(--text-2);
+    font-size: 14px;
+  }
+
+  .section-sub.fine {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-top: 14px;
+  }
+  .section-sub a {
+    color: var(--link);
+  }
+  .section-sub a:hover {
+    color: var(--link-hover);
+  }
+
+  @media (max-width: 820px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .stat-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

@@ -104,6 +104,11 @@ const products: Product[] = [
           primary: true,
         },
         {
+          label: "Product page",
+          href: "/sentinel",
+          internal: true,
+        },
+        {
           label: "Read the announcement",
           href: "/blog/sentinel-sold-out-until-it-isnt",
           internal: true,
